@@ -15,30 +15,32 @@ Developed by **Zeiven**.
 ✅ All downloads organized into separate folders (`/mp3` and `/mp4`)  
 ✅ Graphical interface with progress bar and log display  
 ✅ Portable — no installation required for end users (standalone `.exe`)  
-✅ Logo and custom branding
 
 ---
 
-## 📦 Download
+## 📦 Download executable
 
-If you only want to use the application **without installing Python or other tools:**
+If you just want to use the app **without installing Python or dependencies:**
 
-➡️ **[Download the executable (.exe)](link-to-your-release)** (Windows)
+➡️ **[Download BlueLin.exe here](link-to-your-release-or-external-host)** (Windows)
 
 1. Download `BlueLin.exe`
-2. Place it in any folder (the app will auto-create `/TéléchargementsVideos` subfolders)
+2. Place it in any folder
 3. Double-click to open
 4. Paste a video link or select a `.txt` file with multiple links
-5. Choose your format (.mp3, .mp4, or both)
+5. Choose format (.mp3, .mp4, or both)
 6. Click **Download**
 
-✅ Done! No need to install Python, ffmpeg, or any other dependency.
+✅ Done! No need to install Python, ffmpeg, or other tools.
 
 ---
 
 ## 🛠️ Developers / Source Code
 
-If you want to run or modify the source code:
+This repository only contains the **source code and assets**.  
+⚠️ Due to file size limits, **compiled executables (`ffmpeg.exe`, `ffprobe.exe`, `ffplay.exe`) are NOT included.**
+
+If you want to run the source code:
 
 ### 📂 Project structure
 
@@ -46,26 +48,33 @@ If you want to run or modify the source code:
 /BlueLin/
  ├── main.py
  ├── logo.png
- ├── ffmpeg.exe
- ├── ffprobe.exe
- ├── ffplay.exe
  └── README.md
 ```
+
+You must manually download the following binaries and place them in the same folder:
+
+- `ffmpeg.exe`
+- `ffprobe.exe`
+- `ffplay.exe`
+
+Download official builds from [https://ffmpeg.org/download.html](https://ffmpeg.org/download.html) or use prebuilt versions from [https://www.gyan.dev/ffmpeg/builds/](https://www.gyan.dev/ffmpeg/builds/).
+
+---
 
 ### ⚙️ Dependencies
 
 - Python 3.8+
 - Required packages:
     - `yt-dlp`
-    - `pillow` (for logo handling)
+    - `pillow`
 
-Install them via:
+Install dependencies:
 
 ```bash
 pip install yt-dlp pillow
 ```
 
-✅ `tkinter` is included in standard Python installations (no need to install manually).
+✅ `tkinter` is included in standard Python installations.
 
 ---
 
@@ -81,9 +90,9 @@ python main.py
 
 ---
 
-## 🏗️ Building the executable (PyInstaller)
+## 🏗️ Building your own executable (PyInstaller)
 
-To compile your own standalone `.exe`:
+If you want to create your own `.exe`:
 
 1. Install PyInstaller:
 
@@ -91,18 +100,21 @@ To compile your own standalone `.exe`:
 pip install pyinstaller
 ```
 
-2. Run this command:
+2. Run:
 
 ```bash
 pyinstaller --onefile --windowed --add-binary "ffmpeg.exe;." --add-binary "ffprobe.exe;." --add-binary "ffplay.exe;." --add-data "logo.png;." main.py
 ```
 
-The executable will be in `/dist/main.exe`.
+This will generate `main.exe` in the `/dist` folder.
 
 You can rename `main.exe` to `BlueLin.exe`.
 
-✅ This `.exe` includes **Python, ffmpeg, ffprobe, ffplay, the logo, and all dependencies** — no external installation required.
+✅ The `.exe` will embed Python, ffmpeg, ffprobe, ffplay, the logo, and all dependencies.
 
+⚠️ You cannot upload the `.exe` or ffmpeg binaries to this GitHub repository due to file size limits.
+
+---
 
 ## 🙌 Credits
 
